@@ -8,151 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0f070c;
-      --rose-gold: #f4b8c1;
-      --crimson: #e11d48;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #0d0509;
-      color: #fdf2f5;
-      overflow-x: hidden;
-    }
-
-    .font-serif-romantic {
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .font-script {
-      font-family: 'Dancing Script', cursive;
-    }
-
-    /* Animated Ambient Background */
-    .ambient-bg {
-      background:
-        radial-gradient(circle at 15% 20%, rgba(225, 29, 72, 0.22), transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(244, 114, 182, 0.16), transparent 45%),
-        radial-gradient(circle at 50% 85%, rgba(190, 24, 93, 0.2), transparent 50%),
-        #0d0509;
-    }
-
-    /* Glassmorphism Cards */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(251, 207, 232, 0.16);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-
-    .rose-border {
-      border: 1px solid rgba(244, 184, 193, 0.35);
-      box-shadow: 0 0 25px rgba(225, 29, 72, 0.15);
-    }
-
-    /* Floating Hearts */
-    .floating-heart {
-      position: fixed;
-      bottom: -30px;
-      pointer-events: none;
-      z-index: 1;
-      animation: floatUp linear forwards;
-      opacity: 0.7;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(0.8) rotate(0deg);
-        opacity: 0;
-      }
-      15% {
-        opacity: 0.75;
-      }
-      85% {
-        opacity: 0.5;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.25) rotate(25deg);
-        opacity: 0;
-      }
-    }
-
-    /* Candle Flame Animation */
-    .flame {
-      width: 16px;
-      height: 26px;
-      background: radial-gradient(ellipse at bottom, #fff7ed 0%, #fde047 45%, #f97316 85%, transparent 100%);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      box-shadow: 0 0 18px #fb923c, 0 0 35px #facc15;
-      animation: flicker 0.9s infinite alternate ease-in-out;
-      transform-origin: bottom center;
-      transition: all 0.4s ease;
-    }
-
-    .flame.out {
-      opacity: 0;
-      transform: scale(0.1) translateY(10px);
-      box-shadow: none;
-    }
-
-    @keyframes flicker {
-      0% { transform: scale(1) rotate(-2deg); }
-      50% { transform: scale(1.06, 0.95) rotate(2deg); }
-      100% { transform: scale(0.96, 1.05) rotate(-1deg); }
-    }
-
-    /* 3D Flip Cards for Nicknames */
-    .flip-card {
-      perspective: 1000px;
-      height: 230px;
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
-      transform-style: preserve-3d;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-radius: 1.5rem;
-    }
-
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
-
-    /* Envelope Open Animation */
-    .envelope-flap {
-      transform-origin: top;
-      transition: transform 0.7s ease;
-    }
-    .envelope-open .envelope-flap {
-      transform: rotateX(180deg);
-    }
-
-    /* Subtle Pulse Glow */
-    @keyframes softPulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.35); }
-      50% { box-shadow: 0 0 38px rgba(244, 63, 94, 0.7); }
-    }
-    .pulse-glow {
-      animation: softPulse 2.8s infinite ease-in-out;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="ambient-bg min-h-screen relative selection:bg-rose-500 selection:text-white">
 
@@ -318,7 +174,7 @@
       </div>
     </section>
 
-    <!-- 4. PHOTO GALLERY (HER 3 PHOTOS + UPLOAD/SWAP OPTION) -->
+    <!-- 4. PHOTO GALLERY -->
     <section id="gallery" class="my-14 md:my-20">
       <div class="text-center mb-10">
         <span class="text-xs uppercase tracking-[0.25em] text-rose-300/80 block mb-2">My Favorite Views</span>
@@ -396,137 +252,30 @@
       </div>
     </section>
 
-    <!-- 5. INTERACTIVE NICKNAME FLIP CARDS -->
+    <!-- 5. 4 DAYS TIMELINE / LOVE NOTES -->
     <section class="my-14 md:my-20">
-      <div class="text-center mb-10">
-        <span class="text-xs uppercase tracking-[0.25em] text-pink-300/80 block mb-2">Tap Each Card</span>
-        <h2 class="font-serif-romantic text-3xl sm:text-5xl font-bold text-white mb-2">
-          Har Naam Mein Sirf Pyaar 💕
+      <div class="glass-card rose-border rounded-3xl p-6 sm:p-10 max-w-3xl mx-auto text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-rose-300/80 block mb-2">Our Journey</span>
+        <h2 class="font-serif-romantic text-3xl sm:text-4xl font-bold text-white mb-6">
+          Bas 4 Din, Aur Yeh Dil Tera Ho Gaya 🥹✨
         </h2>
-        <p class="text-rose-200/75 text-sm sm:text-base">
-          In cards par tap karo aur dekho main tumhe ye sab kyun bulata hoon...
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <!-- Card 1: Mera Baccha -->
-        <div onclick="this.classList.toggle('flipped')" class="flip-card cursor-pointer">
-          <div class="flip-card-inner">
-            <div class="flip-card-front glass-card rose-border p-6 flex flex-col items-center justify-center text-center">
-              <span class="text-4xl mb-3">🧸</span>
-              <h3 class="font-script text-3xl text-rose-300 mb-2">Mera Baccha</h3>
-              <span class="text-xs text-rose-200/70 bg-white/5 px-3 py-1 rounded-full">Tap to flip ↻</span>
-            </div>
-            <div class="flip-card-back bg-gradient-to-br from-rose-900/95 to-pink-950/95 border border-rose-300/40 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-rose-100 text-sm sm:text-base leading-relaxed">
-                "Kyunki tum bilkul ek chhote se pyaare bacche jaisi ho jiska mujhe hamesha khayal rakhna hai, jise kabhi udaas nahi hone dena." ❤️
-              </p>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+          <div class="p-4 rounded-2xl bg-white/5 border border-rose-300/15">
+            <span class="font-script text-2xl text-rose-300">Pehla Din</span>
+            <p class="text-rose-100/80 text-sm mt-1">Jab pehli baar baat hui thi, tab pata hi nahi chala ki koi itna special bhi mil sakta hai.</p>
           </div>
-        </div>
-
-        <!-- Card 2: Meri Jaan -->
-        <div onclick="this.classList.toggle('flipped')" class="flip-card cursor-pointer">
-          <div class="flip-card-inner">
-            <div class="flip-card-front glass-card rose-border p-6 flex flex-col items-center justify-center text-center">
-              <span class="text-4xl mb-3">❤️‍🔥</span>
-              <h3 class="font-script text-3xl text-pink-300 mb-2">Meri Jaan</h3>
-              <span class="text-xs text-rose-200/70 bg-white/5 px-3 py-1 rounded-full">Tap to flip ↻</span>
-            </div>
-            <div class="flip-card-back bg-gradient-to-br from-pink-900/95 to-rose-950/95 border border-rose-300/40 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-rose-100 text-sm sm:text-base leading-relaxed">
-                "Sirf 4 din hue hain, par ab meri saansein aur meri khushi tumhi se judi hain. Tum sach mein meri jaan ban gayi ho!" 🫠💖
-              </p>
-            </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-rose-300/15">
+            <span class="font-script text-2xl text-pink-300">Dusra Din</span>
+            <p class="text-rose-100/80 text-sm mt-1">Tumhari baatein, tumhara style aur har cheez meri aadat banne lagi.</p>
           </div>
-        </div>
-
-        <!-- Card 3: Meri Cutie -->
-        <div onclick="this.classList.toggle('flipped')" class="flip-card cursor-pointer">
-          <div class="flip-card-inner">
-            <div class="flip-card-front glass-card rose-border p-6 flex flex-col items-center justify-center text-center">
-              <span class="text-4xl mb-3">🦋</span>
-              <h3 class="font-script text-3xl text-rose-300 mb-2">Meri Cutie</h3>
-              <span class="text-xs text-rose-200/70 bg-white/5 px-3 py-1 rounded-full">Tap to flip ↻</span>
-            </div>
-            <div class="flip-card-back bg-gradient-to-br from-rose-900/95 to-pink-950/95 border border-rose-300/40 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-rose-100 text-sm sm:text-base leading-relaxed">
-                "Tumhari baatein, tumhara gussa, tumhara pyaar — sab kuchh itna cute hai ki mujhe baar-baar tumse pyaar ho jaata hai." 🥰✨
-              </p>
-            </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-rose-300/15">
+            <span class="font-script text-2xl text-pink-300">Teesra Din</span>
+            <p class="text-rose-100/80 text-sm mt-1">Dil ne keh diya ki bas yahi hai jiske sath ab saari zindagi nikalni hai, Mera Baccha.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. 4 DAYS OF US & FOREVER TO GO TIMELINE -->
-    <section class="my-14 md:my-20">
-      <div class="glass-card rose-border rounded-3xl p-6 sm:p-10">
-        <div class="text-center mb-10">
-          <span class="text-xs uppercase tracking-[0.25em] text-rose-300/80 block mb-2">Our Little Journey</span>
-          <h2 class="font-serif-romantic text-3xl sm:text-5xl font-bold text-white mb-2">
-            4 Din Saath Ke, Aur Poori Zindagi Baaki Hai ⏳❤️
-          </h2>
-          <p class="text-rose-200/80 text-sm sm:text-base">
-            Waqt kam zaroor hai, par ehsaas janmon purana lagta hai...
-          </p>
-        </div>
-
-        <!-- Stats Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-          <div class="bg-white/5 border border-rose-200/15 rounded-2xl p-4 text-center">
-            <div class="font-serif-romantic text-3xl sm:text-4xl font-bold text-rose-400">7 Nov</div>
-            <div class="text-xs text-rose-200/75 mt-1">My Angel Was Born 🎂</div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-rose-300/15">
+            <span class="font-script text-2xl text-rose-300">Aaj Aur Hamesha</span>
+            <p class="text-rose-100/80 text-sm mt-1">7 November ka birthday late celebrate sahi, par ab har pal sirf tumhara hai, Cutie! ❤️</p>
           </div>
-          <div class="bg-white/5 border border-rose-200/15 rounded-2xl p-4 text-center">
-            <div class="font-serif-romantic text-3xl sm:text-4xl font-bold text-pink-300">4 Days</div>
-            <div class="text-xs text-rose-200/75 mt-1">Of Pure Magic ✨</div>
-          </div>
-          <div class="bg-white/5 border border-rose-200/15 rounded-2xl p-4 text-center">
-            <div class="font-serif-romantic text-3xl sm:text-4xl font-bold text-rose-400">1000+</div>
-            <div class="text-xs text-rose-200/75 mt-1">Smiles Because of You 🥰</div>
-          </div>
-          <div class="bg-white/5 border border-rose-200/15 rounded-2xl p-4 text-center">
-            <div class="font-serif-romantic text-3xl sm:text-4xl font-bold text-pink-300">∞</div>
-            <div class="text-xs text-rose-200/75 mt-1">Years Together Forever 💍</div>
-          </div>
-        </div>
-
-        <!-- Timeline Milestones -->
-        <div class="space-y-6 max-w-2xl mx-auto border-l-2 border-rose-400/40 pl-6 ml-2 sm:mx-auto">
-          <div class="relative">
-            <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-rose-500 ring-4 ring-rose-500/25"></span>
-            <h4 class="font-semibold text-rose-200 text-base sm:text-lg">7 November — Jab Duniya Ko Meri Cutie Mili</h4>
-            <p class="text-rose-100/75 text-sm mt-1">
-              Us din mujhe khabar nahi thi ki meri zindagi ki sabse khoobsurat khushi paida hui hai. Sorry main us din wish nahi kar paaya!
-            </p>
-          </div>
-
-          <div class="relative">
-            <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-pink-400 ring-4 ring-pink-400/25"></span>
-            <h4 class="font-semibold text-rose-200 text-base sm:text-lg">4 Din Pehle — Jab Hum Mile</h4>
-            <p class="text-rose-100/75 text-sm mt-1">
-              Jabse hum saath aaye hain, har pal khaas ban gaya hai. Tumse baat kiye bina ek pal bhi adhoora lagta hai mera baccha.
-            </p>
-          </div>
-
-          <div class="relative">
-            <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-rose-500 ring-4 ring-rose-500/25"></span>
-            <h4 class="font-semibold text-rose-200 text-base sm:text-lg">Aaj & Hamesha — Happy Belated Birthday Jaan</h4>
-            <p class="text-rose-100/75 text-sm mt-1">
-              Ab har din tumhara birthday hai aur har din main tumhe utna hi pyaar karunga. Hamesha mere saath rehna! ❤️
-            </p>
-          </div>
-        </div>
-
-        <!-- Interactive Hug / Love Shower Button -->
-        <div class="mt-10 text-center">
-          <button onclick="sendLoveShower()" class="px-8 py-4 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:brightness-110 text-white font-semibold text-sm sm:text-base shadow-2xl transition transform active:scale-95">
-            Tap For Unlimited Pyaar & Hugs 🤗💖
-          </button>
-          <p id="loveToast" class="mt-3 text-rose-300 text-sm font-medium opacity-0 transition-opacity duration-300">
-            Sending a tightest hug to Mera Baccha, Meri Jaan, Meri Cutie! 🫂❤️
-          </p>
         </div>
       </div>
     </section>
@@ -534,246 +283,10 @@
   </main>
 
   <!-- Footer -->
-  <footer class="relative z-10 border-t border-rose-200/10 py-8 text-center text-rose-200/60 text-xs sm:text-sm px-4">
-    <p class="font-script text-2xl text-rose-300 mb-1">Made with all my heart for Mera Baccha ❤️</p>
-    <p>Belated Happy Birthday (7th Nov) • I Love You So Much Jaan 🫠✨</p>
+  <footer class="text-center py-8 border-t border-rose-200/10 text-xs text-rose-300/60">
+    <p>Made with infinite love & apologies by Raghav for his Jaan ❤️</p>
   </footer>
 
-  <script>
-    // 1. Floating Hearts Background Generator
-    const heartsContainer = document.getElementById('heartsContainer');
-    const heartSymbols = ['❤️', '💖', '💕', '✨', '🌸', '🫠'];
-
-    function spawnHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'floating-heart';
-      heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-      const duration = Math.random() * 6 + 7;
-      heart.style.animationDuration = duration + 's';
-      heartsContainer.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, duration * 1000);
-    }
-    setInterval(spawnHeart, 900);
-
-    // 2. Apology Envelope Interactions
-    function openApologyLetter() {
-      document.getElementById('letterClosed').classList.add('hidden');
-      document.getElementById('letterOpened').classList.remove('hidden');
-      launchConfetti(60);
-    }
-
-    function acceptSorry() {
-      const btn = document.getElementById('forgiveBtn');
-      btn.innerText = "Maaf Kar Diya ❤️";
-      btn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
-      btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
-      document.getElementById('forgiveReply').classList.remove('hidden');
-      launchConfetti(100);
-    }
-
-    // 3. Interactive Candles & Confetti
-    const candleStates = [true, true, true];
-
-    function blowCandle(index) {
-      if (!candleStates[index]) return;
-      candleStates[index] = false;
-      document.getElementById(`flame-${index}`).classList.add('out');
-      checkAllCandlesOut();
-    }
-
-    function blowAllCandles() {
-      [0, 1, 2].forEach(i => {
-        candleStates[i] = false;
-        document.getElementById(`flame-${i}`).classList.add('out');
-      });
-      checkAllCandlesOut();
-    }
-
-    function relightCandles() {
-      [0, 1, 2].forEach(i => {
-        candleStates[i] = true;
-        document.getElementById(`flame-${i}`).classList.remove('out');
-      });
-      document.getElementById('wishReveal').classList.add('hidden');
-      document.getElementById('cakeInstruction').innerText =
-        "Apni aankhein band karo, ek pyaari si wish maango, aur candles par tap karke unhe bujhao!";
-    }
-
-    function checkAllCandlesOut() {
-      if (candleStates.every(state => state === false)) {
-        document.getElementById('wishReveal').classList.remove('hidden');
-        document.getElementById('cakeInstruction').innerText =
-          "Yayyy! Wish maang li na meri jaan? 🎉";
-        launchConfetti(160);
-      }
-    }
-
-    // 4. Photo Swap Utility (in case user wants to load local image from browser)
-    function swapPhoto(event, imgId) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById(imgId).src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-
-    // 5. Love Shower Button
-    function sendLoveShower() {
-      launchConfetti(120);
-      for (let i = 0; i < 12; i++) {
-        setTimeout(spawnHeart, i * 100);
-      }
-      const toast = document.getElementById('loveToast');
-      toast.classList.remove('opacity-0');
-      setTimeout(() => {
-        toast.classList.add('opacity-0');
-      }, 4000);
-    }
-
-    // 6. Lightweight Canvas Confetti Engine
-    const canvas = document.getElementById('confettiCanvas');
-    const ctx = canvas.getContext('2d');
-    let confettiPieces = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    function launchConfetti(count = 100) {
-      const colors = ['#fb7185', '#f43f5e', '#fbcfe8', '#fde047', '#f472b6', '#ffffff'];
-      for (let i = 0; i < count; i++) {
-        confettiPieces.push({
-          x: Math.random() * canvas.width,
-          y: -10 - Math.random() * 100,
-          size: Math.random() * 7 + 4,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          speedY: Math.random() * 3 + 2,
-          speedX: (Math.random() - 0.5) * 3,
-          rotation: Math.random() * 360,
-          rotationSpeed: (Math.random() - 0.5) * 8
-        });
-      }
-    }
-
-    function animateConfetti() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      confettiPieces.forEach((p, idx) => {
-        p.y += p.speedY;
-        p.x += p.speedX;
-        p.rotation += p.rotationSpeed;
-
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate((p.rotation * Math.PI) / 180);
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
-        ctx.restore();
-
-        if (p.y > canvas.height + 20) {
-          confettiPieces.splice(idx, 1);
-        }
-      });
-      requestAnimationFrame(animateConfetti);
-    }
-    animateConfetti();
-
-    // 7. Soft Synthesized Romantic Melody (Web Audio API - No external audio needed)
-    let audioCtx = null;
-    let isPlaying = false;
-    let melodyTimer = null;
-
-    // Gentle Happy Birthday + Romantic Arpeggio notes (Hz)
-    const melodyNotes = [
-      { freq: 261.63, dur: 0.4 }, // C4 - Hap-
-      { freq: 261.63, dur: 0.4 }, // C4 - py
-      { freq: 293.66, dur: 0.8 }, // D4 - Birth-
-      { freq: 261.63, dur: 0.8 }, // C4 - day
-      { freq: 349.23, dur: 0.8 }, // F4 - to
-      { freq: 329.63, dur: 1.2 }, // E4 - you
-
-      { freq: 261.63, dur: 0.4 }, // C4 - Hap-
-      { freq: 261.63, dur: 0.4 }, // C4 - py
-      { freq: 293.66, dur: 0.8 }, // D4 - Birth-
-      { freq: 261.63, dur: 0.8 }, // C4 - day
-      { freq: 392.00, dur: 0.8 }, // G4 - Meri
-      { freq: 349.23, dur: 1.2 }, // F4 - Jaan
-
-      { freq: 261.63, dur: 0.4 }, // C4
-      { freq: 261.63, dur: 0.4 }, // C4
-      { freq: 523.25, dur: 0.8 }, // C5
-      { freq: 440.00, dur: 0.8 }, // A4
-      { freq: 349.23, dur: 0.8 }, // F4
-      { freq: 329.63, dur: 0.8 }, // E4
-      { freq: 293.66, dur: 1.2 }, // D4
-
-      { freq: 466.16, dur: 0.4 }, // Bb4
-      { freq: 466.16, dur: 0.4 }, // Bb4
-      { freq: 440.00, dur: 0.8 }, // A4
-      { freq: 349.23, dur: 0.8 }, // F4
-      { freq: 392.00, dur: 0.8 }, // G4
-      { freq: 349.23, dur: 1.4 }  // F4
-    ];
-
-    let noteIndex = 0;
-
-    function playNextNote() {
-      if (!isPlaying || !audioCtx) return;
-
-      const note = melodyNotes[noteIndex];
-      const now = audioCtx.currentTime;
-
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(note.freq, now);
-
-      gain.gain.setValueAtTime(0.001, now);
-      gain.gain.exponentialRampToValueAtTime(0.12, now + 0.06);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + note.dur * 0.95);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(now);
-      osc.stop(now + note.dur);
-
-      noteIndex = (noteIndex + 1) % melodyNotes.length;
-      melodyTimer = setTimeout(playNextNote, note.dur * 1000);
-    }
-
-    function toggleMusic() {
-      const btnText = document.getElementById('musicText');
-      const btnIcon = document.getElementById('musicIcon');
-
-      if (!isPlaying) {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        isPlaying = true;
-        btnText.innerText = 'Pause Melody';
-        btnIcon.innerText = '🎶';
-        playNextNote();
-      } else {
-        isPlaying = false;
-        clearTimeout(melodyTimer);
-        btnText.innerText = 'Play Melody';
-        btnIcon.innerText = '🎵';
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
