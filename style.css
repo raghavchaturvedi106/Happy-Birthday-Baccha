@@ -1,0 +1,103 @@
+:root {
+  --bg-dark: #0f070c;
+  --rose-gold: #f4b8c1;
+  --crimson: #e11d48;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #0d0509;
+  color: #fdf2f5;
+  overflow-x: hidden;
+}
+
+.font-serif-romantic {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Animated Ambient Background */
+.ambient-bg {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(225, 29, 72, 0.22), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(244, 114, 182, 0.16), transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(190, 24, 93, 0.2), transparent 50%),
+    #0d0509;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 207, 232, 0.16);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.rose-border {
+  border: 1px solid rgba(244, 184, 193, 0.35);
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.15);
+}
+
+/* Floating Hearts */
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatUp linear forwards;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.25) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* Candle Flame Animation */
+.flame {
+  width: 16px;
+  height: 26px;
+  background: radial-gradient(ellipse at bottom, #fff7ed 0%, #fde047 45%, #f97316 85%, transparent 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 0 18px #fb923c, 0 0 35px #facc15;
+  animation: flicker 0.9s infinite alternate ease-in-out;
+  transform-origin: bottom center;
+  transition: all 0.4s ease;
+}
+
+.flame.out {
+  opacity: 0;
+  transform: scale(0.1) translateY(10px);
+  box-shadow: none;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  50% { transform: scale(1.06, 0.95) rotate(2deg); }
+  100% { transform: scale(0.96, 1.05) rotate(-1deg); }
+}
+
+/* Subtle Pulse Glow */
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.35); }
+  50% { box-shadow: 0 0 38px rgba(244, 63, 94, 0.7); }
+}
+.pulse-glow {
+  animation: softPulse 2.8s infinite ease-in-out;
+}
